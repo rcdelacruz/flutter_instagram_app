@@ -146,7 +146,7 @@ extra:
   generator: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/rcdelacruz/flutter_rork_app
+      link: https://github.com/rcdelacruz/flutter_instagram_app
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/your-handle
 

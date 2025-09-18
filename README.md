@@ -91,8 +91,8 @@ lib/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/rcdelacruz/flutter_rork_app.git
-   cd flutter_rork_app
+   git clone https://github.com/rcdelacruz/flutter_instagram_app.git
+   cd flutter_instagram_app
    ```
 
 2. **Install dependencies**
@@ -256,8 +256,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - **Documentation**: Check the `/docs` directory
-- **Issues**: [GitHub Issues](https://github.com/yourusername/flutter_rork_app/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/flutter_rork_app/discussions)
+- **Issues**: [GitHub Issues](https://github.com/rcdelacruz/flutter_instagram_app/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/rcdelacruz/flutter_instagram_app/discussions)
 - **Email**: support@rorkapp.com
 
 ---
