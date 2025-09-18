@@ -29,7 +29,7 @@ dependencies:
   # Image Handling
   image_picker: ^1.0.4
   cached_network_image: ^3.3.0
-  image_cropper: ^5.0.1
+  # image_cropper: ^5.0.1
   photo_view: ^0.14.0
 
   # Storage & Persistence
@@ -68,9 +68,9 @@ dependencies:
   permission_handler: ^11.0.1
 
   # Analytics & Monitoring
-  firebase_core: ^2.24.2
-  firebase_analytics: ^10.7.4
-  firebase_crashlytics: ^3.4.8
+  # firebase_core: ^2.24.2
+  # firebase_analytics: ^10.7.4
+  # firebase_crashlytics: ^3.4.8
 
   # Internationalization
   intl: ^0.19.0
@@ -115,17 +115,17 @@ flutter:
     - .env
 
   # Fonts
-  fonts:
-    - family: Instagram
-      fonts:
-        - asset: assets/fonts/Instagram.ttf
-    - family: Roboto
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-        - asset: assets/fonts/Roboto-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Roboto-Bold.ttf
-          weight: 700
+  # fonts:
+  #   - family: Instagram
+  #     fonts:
+  #       - asset: assets/fonts/Instagram.ttf
+  #   - family: Roboto
+  #     fonts:
+  #       - asset: assets/fonts/Roboto-Regular.ttf
+  #       - asset: assets/fonts/Roboto-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Roboto-Bold.ttf
+  #         weight: 700
 
 # Flutter Launcher Icons Configuration
 flutter_launcher_icons:

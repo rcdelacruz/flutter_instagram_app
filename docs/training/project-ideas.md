@@ -2,20 +2,20 @@
 
 A collection of 15+ progressive project ideas to master Flutter development using the Instagram Clone as a foundation.
 
-## 🎯 Project Categories
+## Project Categories
 
-### 📱 Beginner Projects (Weeks 1-4)
+### Beginner Projects (Weeks 1-4)
 Perfect for learning Flutter basics and core concepts.
 
-### 🚀 Intermediate Projects (Weeks 5-8)
+### Intermediate Projects (Weeks 5-8)
 Build on fundamentals with more complex features and integrations.
 
-### 🏆 Advanced Projects (Weeks 9-12)
+### Advanced Projects (Weeks 9-12)
 Production-ready applications with advanced features and optimizations.
 
 ---
 
-## 📱 Beginner Projects
+## Beginner Projects
 
 ### 1. Personal Portfolio App
 **Duration**: 3-5 days | **Difficulty**: ⭐⭐☆☆☆
@@ -126,7 +126,7 @@ Create a productivity app for managing tasks and projects.
 
 ---
 
-## 🚀 Intermediate Projects
+## Intermediate Projects
 
 ### 5. Social Fitness Tracker
 **Duration**: 10-14 days | **Difficulty**: ⭐⭐⭐☆☆
@@ -240,7 +240,7 @@ Create an educational platform with courses and progress tracking.
 
 ---
 
-## 🏆 Advanced Projects
+## Advanced Projects
 
 ### 9. Multi-Vendor Food Delivery
 **Duration**: 18-25 days | **Difficulty**: ⭐⭐⭐⭐☆
@@ -438,7 +438,7 @@ Build an AR-powered shopping experience.
 
 ---
 
-## 🎯 Project Selection Guide
+## Project Selection Guide
 
 ### Choose Based on Your Goals:
 
@@ -467,4 +467,4 @@ Build an AR-powered shopping experience.
 
 Each project builds upon concepts from the Instagram Clone while introducing new challenges and learning opportunities. Use the Instagram Clone documentation as your reference guide for implementing similar features in these projects.
 
-Happy coding! 🚀
+Happy coding!

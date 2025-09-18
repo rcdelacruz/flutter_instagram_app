@@ -2,7 +2,7 @@
 
 A comprehensive training program for developers to master Flutter development using the Instagram Clone project as a foundation.
 
-## 🎯 Training Overview
+## Training Overview
 
 This self-paced training program is designed for both new and experienced developers who want to master Flutter development. Using our Instagram Clone project as a foundation, you'll learn production-grade Flutter development practices, clean architecture, and modern development workflows.
 
@@ -20,7 +20,7 @@ This self-paced training program is designed for both new and experienced develo
 - Familiarity with Git and version control
 - Basic understanding of mobile app concepts
 
-## 📚 Training Structure
+## Training Structure
 
 ### Phase 1: Foundation (Weeks 1-2)
 **Goal**: Understand Flutter basics and project structure
@@ -30,7 +30,7 @@ This self-paced training program is designed for both new and experienced develo
   - Follow [Flutter Installation Guide](../setup/flutter-installation.md)
   - Set up development environment (VS Code/Android Studio)
   - Create your first "Hello World" app
-  
+
 - [ ] **Day 3-4**: Dart language basics
   - Variables, functions, and classes
   - Null safety and type system
@@ -181,7 +181,7 @@ This self-paced training program is designed for both new and experienced develo
   - Create update mechanisms
   - Plan maintenance strategies
 
-## 🛠️ Hands-On Projects
+## Hands-On Projects
 
 Complete these projects to reinforce your learning and build a portfolio:
 
@@ -265,7 +265,7 @@ Build a fitness tracking app with:
 - Background processing
 - Health data handling
 
-## 📋 Assessment Checkpoints
+## Assessment Checkpoints
 
 ### Week 4 Checkpoint: Basic Competency
 - [ ] Can create responsive layouts
@@ -285,7 +285,7 @@ Build a fitness tracking app with:
 - [ ] Handles edge cases
 - [ ] Follows best practices
 
-## 🎓 Certification Path
+## Certification Path
 
 ### Flutter Developer Certificate
 Complete all phases and projects to earn recognition:
@@ -303,7 +303,7 @@ Complete all phases and projects to earn recognition:
    - Deploy a production app
    - Demonstrate best practices
 
-## 📚 Additional Resources
+## Additional Resources
 
 ### Recommended Reading
 - [Flutter Documentation](https://docs.flutter.dev/)
@@ -322,7 +322,7 @@ Complete all phases and projects to earn recognition:
 - [Flutter Codelabs](https://codelabs.developers.google.com/?cat=Flutter)
 - [Flutter Samples](https://github.com/flutter/samples)
 
-## 🤝 Getting Help
+## Getting Help
 
 ### When You're Stuck
 1. **Check Documentation**: Always start with official docs
@@ -337,7 +337,7 @@ Complete all phases and projects to earn recognition:
 - Attend Flutter meetups and conferences
 - Find a mentor in the Flutter community
 
-## 🏆 Success Tips
+## Success Tips
 
 1. **Practice Daily**: Consistency is key to mastering Flutter
 2. **Build Real Projects**: Apply concepts to practical problems
@@ -349,4 +349,4 @@ Complete all phases and projects to earn recognition:
 
 Remember: This Instagram Clone project serves as your reference implementation. Use it to understand patterns, but challenge yourself to implement features independently first, then compare with the reference solution.
 
-Good luck on your Flutter journey! 🚀
+Good luck on your Flutter journey!

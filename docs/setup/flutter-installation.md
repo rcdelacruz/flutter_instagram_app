@@ -2,11 +2,11 @@
 
 Complete guide for installing Flutter and setting up your development environment for the Instagram Clone project.
 
-## 🎯 Overview
+## Overview
 
 This guide will help you install Flutter and set up your development environment on macOS, Windows, and Linux. Follow the steps for your operating system to get started with Flutter development.
 
-## 📋 Prerequisites
+## Prerequisites
 
 ### System Requirements
 
@@ -25,7 +25,7 @@ This guide will help you install Flutter and set up your development environment
 - Disk space: 600 MB (does not include disk space for IDE/tools)
 - Tools: bash, curl, file, git 2.x, mkdir, rm, unzip, which, xz-utils, zip, libglu1-mesa
 
-## 🍎 macOS Installation
+## macOS Installation
 
 ### Step 1: Download Flutter SDK
 
@@ -73,7 +73,7 @@ sudo gem install cocoapods
 2. Go to Xcode > Preferences > Components
 3. Install an iOS Simulator
 
-## 🪟 Windows Installation
+## Windows Installation
 
 ### Step 1: Download Flutter SDK
 
@@ -102,7 +102,7 @@ sudo gem install cocoapods
 4. Select a device and system image
 5. Click "Finish"
 
-## 🐧 Linux Installation
+## Linux Installation
 
 ### Step 1: Download Flutter SDK
 
@@ -136,7 +136,7 @@ sudo apt-get install curl git unzip xz-utils zip libglu1-mesa
    /opt/android-studio/bin/studio.sh
    ```
 
-## 🔧 Development Environment Setup
+## Development Environment Setup
 
 ### Install Visual Studio Code (Recommended)
 
@@ -154,7 +154,7 @@ sudo apt-get install curl git unzip xz-utils zip libglu1-mesa
 3. Select "Application"
 4. Choose a location and project name
 
-## ✅ Verify Installation
+## Verify Installation
 
 Run Flutter doctor to check your installation:
 
@@ -197,7 +197,7 @@ export PATH="$GEM_HOME/bin:$PATH"
 gem install cocoapods
 ```
 
-## 🚀 Create Your First Flutter App
+## Create Your First Flutter App
 
 Test your installation by creating a new Flutter app:
 
@@ -207,7 +207,7 @@ cd my_first_app
 flutter run
 ```
 
-## 📱 Device Setup
+## Device Setup
 
 ### iOS Device (macOS only)
 
@@ -227,7 +227,7 @@ flutter run
 3. Connect your device via USB
 4. Accept the USB debugging prompt
 
-## 🔄 Updating Flutter
+## Updating Flutter
 
 Keep Flutter up to date:
 
@@ -240,7 +240,7 @@ Check for updates:
 flutter --version
 ```
 
-## 🛠️ IDE Configuration
+## IDE Configuration
 
 ### Android Studio Setup
 
@@ -269,7 +269,7 @@ flutter --version
    }
    ```
 
-## 🎯 Next Steps
+## Next Steps
 
 After successful installation:
 
@@ -284,7 +284,7 @@ After successful installation:
 
 3. **Start Development**: Begin with the [Self-Paced Training Guide](../training/self-paced-training-guide.md)
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -311,11 +311,11 @@ After successful installation:
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/flutter)
 - [Flutter Discord](https://discord.gg/flutter)
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [Flutter Cookbook](https://docs.flutter.dev/cookbook)
 - [Flutter Samples](https://github.com/flutter/samples)
 - [Dart Language Tour](https://dart.dev/guides/language/language-tour)
 - [Material Design Guidelines](https://material.io/design)
 
-Your Flutter development environment is now ready! 🎉
+Your Flutter development environment is now ready!

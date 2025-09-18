@@ -95,6 +95,8 @@ nav:
     - Testing: tools/testing.md
     - Code Quality: tools/code-quality.md
     - Performance: tools/performance.md
+  - Testing:
+    - Testing Guide: testing/testing-guide.md
   - Troubleshooting:
     - iOS Issues: troubleshooting/ios-troubleshooting.md
     - Android Issues: troubleshooting/android-troubleshooting.md
@@ -102,6 +104,7 @@ nav:
     - Build Issues: troubleshooting/build-issues.md
   - Data & Networking:
     - API Integration: data/api-integration.md
+    - Supabase Integration: data/supabase-integration.md
     - State Synchronization: data/state-sync.md
     - Offline Support: data/offline-support.md
     - Realtime Data: data/realtime-data.md
@@ -111,6 +114,7 @@ nav:
     - App Security: security/app-security.md
     - Data Security: security/data-security.md
   - Deployment:
+    - Deployment Guide: deployment/deployment-guide.md
     - CI/CD: deployment/cicd.md
     - Build Configuration: deployment/build-config.md
     - App Store: deployment/app-store.md
