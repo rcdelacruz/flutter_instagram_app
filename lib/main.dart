@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,9 +8,25 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'app.dart';
 import 'config/font_config.dart';
 import 'utils/font_loader.dart';
+import 'utils/font_fallback_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Override debug print to filter out font warnings
+  if (kDebugMode) {
+    final originalDebugPrint = debugPrint;
+    debugPrint = (String? message, {int? wrapWidth}) {
+      if (message != null &&
+          !message.contains('Could not find a set of Noto fonts') &&
+          !message.contains('Please add a font asset for the missing characters')) {
+        originalDebugPrint(message, wrapWidth: wrapWidth);
+      }
+    };
+  }
+
+  // Initialize comprehensive font fallback system
+  await FontFallbackManager.initialize();
 
   // Load all Noto fonts to prevent missing character warnings
   await CustomFontLoader.loadFonts();

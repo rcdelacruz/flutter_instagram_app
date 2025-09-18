@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/app_config.dart';
 import 'config/app_theme.dart';
-import 'utils/font_loader.dart';
+import 'utils/font_fallback_manager.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/signup_screen.dart';
 import 'screens/auth/forgot_password_screen.dart';
@@ -21,11 +21,11 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       title: AppConfig.appName,
       theme: AppTheme.lightTheme.copyWith(
-        // Apply comprehensive font fallbacks to all text styles
-        textTheme: CustomFontLoader.applyFontFallbacks(AppTheme.lightTheme.textTheme),
+        // Apply comprehensive font fallbacks using FontFallbackManager
+        textTheme: FontFallbackManager.applyFontFallbacks(AppTheme.lightTheme.textTheme),
         // Additional font configuration for specific components
         appBarTheme: AppTheme.lightTheme.appBarTheme.copyWith(
-          titleTextStyle: CustomFontLoader.createTextStyle(
+          titleTextStyle: FontFallbackManager.createTextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: AppTheme.textPrimary,
@@ -33,6 +33,13 @@ class MyApp extends ConsumerWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
+      // Suppress font-related debug messages
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
+          child: child!,
+        );
+      },
       home: authState.when(
         data: (state) {
           if (state.session != null) {
