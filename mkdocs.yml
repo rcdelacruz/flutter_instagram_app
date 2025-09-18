@@ -64,7 +64,9 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Changelog: CHANGELOG.md
+  - Training:
+    - Self-Paced Training Guide: training/self-paced-training-guide.md
+    - Project Ideas: training/project-ideas.md
   - Getting Started:
     - Flutter Installation: setup/flutter-installation.md
     - Environment Setup: setup/environment-setup.md
@@ -73,6 +75,7 @@ nav:
     - Supabase Setup: setup/supabase-setup.md
     - Supabase Usage: setup/supabase-usage.md
     - Supabase Storage: setup/supabase-storage-setup.md
+  - Changelog: CHANGELOG.md
   - Architecture:
     - App Architecture: architecture/app-architecture.md
     - State Management: architecture/state-management.md
@@ -129,9 +132,6 @@ nav:
     - Hot Reload & Hot Restart: maintenance/hot-reload.md
     - Migrations: maintenance/migrations.md
     - Legacy Support: maintenance/legacy-support.md
-  - Training:
-    - Self-Paced Training Guide: training/self-paced-training-guide.md
-    - Project Ideas: training/project-ideas.md
   - Documentation:
     - MkDocs Setup: setup-mkdocs.md
 
