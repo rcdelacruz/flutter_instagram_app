@@ -115,16 +115,21 @@ flutter:
     - assets/animations/
     - .env
 
-  # Fonts
+  # Fonts - Using exact names Flutter expects
   fonts:
-    - family: NotoSans
+    - family: Noto Sans
       fonts:
         - asset: assets/fonts/NotoSans-Regular.ttf
+        - asset: assets/fonts/NotoSans-Medium.ttf
+          weight: 500
         - asset: assets/fonts/NotoSans-Bold.ttf
           weight: 700
-    - family: NotoColorEmoji
+    - family: Noto Color Emoji
       fonts:
         - asset: assets/fonts/NotoColorEmoji.ttf
+    - family: Noto Sans CJK
+      fonts:
+        - asset: assets/fonts/NotoSansCJK-Regular.ttc
 
 # Flutter Launcher Icons Configuration
 flutter_launcher_icons:

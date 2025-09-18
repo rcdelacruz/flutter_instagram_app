@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/app_config.dart';
 import 'config/app_theme.dart';
-import 'config/font_config.dart';
+import 'utils/font_loader.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/signup_screen.dart';
 import 'screens/auth/forgot_password_screen.dart';
@@ -21,14 +21,11 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       title: AppConfig.appName,
       theme: AppTheme.lightTheme.copyWith(
-        // Comprehensive font fallbacks for missing characters
-        textTheme: AppTheme.lightTheme.textTheme.apply(
-          fontFamily: 'Inter',
-          fontFamilyFallback: FontConfig.fontFallbacks,
-        ),
+        // Apply comprehensive font fallbacks to all text styles
+        textTheme: CustomFontLoader.applyFontFallbacks(AppTheme.lightTheme.textTheme),
         // Additional font configuration for specific components
         appBarTheme: AppTheme.lightTheme.appBarTheme.copyWith(
-          titleTextStyle: FontConfig.createTextStyle(
+          titleTextStyle: CustomFontLoader.createTextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: AppTheme.textPrimary,
