@@ -87,37 +87,57 @@ lib/
 - **shared_preferences** - Local storage
 - **flutter_secure_storage** - Secure storage
 
+## 🚀 Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rcdelacruz/flutter_rork_app.git
+   cd flutter_rork_app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Supabase credentials
+   ```
+
+4. **Run the app**
+   ```bash
+   flutter run
+   ```
+
 ## 📚 Documentation
 
 Comprehensive documentation is available in the `/docs` directory:
+
+**Start Here**: [Complete Documentation Guide](docs/index.md)
 
 ### Setup & Configuration
 - [Environment Setup](docs/setup/environment-setup.md)
 - [Project Structure](docs/setup/project-structure.md)
 - [Supabase Setup](docs/setup/supabase-setup.md)
+- [Supabase Usage](docs/setup/supabase-usage.md)
 - [Package Management](docs/setup/package-management.md)
 
 ### Architecture & Design
 - [App Architecture](docs/architecture/app-architecture.md)
 - [State Management](docs/architecture/state-management.md)
 - [Navigation](docs/architecture/navigation.md)
-- [Component Design](docs/architecture/component-design.md)
-
-### Features & Implementation
-- [Authentication](docs/security/authentication.md)
-- [Data Management](docs/data/api-integration.md)
-- [Real-time Features](docs/data/realtime-data.md)
-- [Offline Support](docs/data/offline-support.md)
+- [Widget Design](docs/architecture/widget-design.md)
 
 ### UI & User Experience
 - [Design Systems](docs/ui/design-systems.md)
-- [Responsive Design](docs/ui/responsive-design.md)
-- [Animations](docs/ui/animations.md)
-- [Platform-Specific Design](docs/ui/platform-specific.md)
 
 ### Development & Testing
-- [Testing Strategy](docs/tools/testing.md)
-- [Code Quality](docs/tools/code-quality.md)
+- [Testing Guide](docs/testing/testing-guide.md)
+
+### Deployment
+- [Deployment Guide](docs/deployment/deployment-guide.md)
 - [Debugging](docs/tools/debugging.md)
 - [Performance](docs/tools/performance.md)
 

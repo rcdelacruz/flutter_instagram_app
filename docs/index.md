@@ -99,21 +99,22 @@ This guide is designed to take you from Flutter beginner to production-ready dev
 2. [Project Structure](setup/project-structure.md)
 3. [Supabase Setup](setup/supabase-setup.md)
 4. [Widget Design](architecture/widget-design.md)
-5. [Styling Systems](ui/styling-systems.md)
+5. [Design Systems](ui/design-systems.md)
 
 ### For Intermediate Developers
 
 1. [App Architecture](architecture/app-architecture.md)
 2. [State Management](architecture/state-management.md)
-3. [API Integration](data/api-integration.md)
-4. [Testing](tools/testing.md)
+3. [Navigation](architecture/navigation.md)
+4. [Supabase Usage](setup/supabase-usage.md)
+5. [Testing Guide](testing/testing-guide.md)
 
 ### For Advanced Developers
 
-1. [Performance Optimization](tools/performance.md)
-2. [Security Implementation](security/authentication.md)
-3. [CI/CD Setup](deployment/cicd.md)
-4. [Monitoring & Analytics](monitoring/crash-reporting.md)
+1. [Performance Optimization](deployment/deployment-guide.md)
+2. [Security Implementation](deployment/deployment-guide.md)
+3. [CI/CD Setup](deployment/deployment-guide.md)
+4. [Monitoring & Analytics](deployment/deployment-guide.md)
 
 ## Development Workflow
 
