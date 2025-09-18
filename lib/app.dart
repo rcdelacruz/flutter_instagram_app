@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'config/app_config.dart';
 import 'config/app_theme.dart';
 import 'screens/auth/login_screen.dart';
+import 'screens/auth/forgot_password_screen.dart';
 import 'screens/home/main_tabs_screen.dart';
 import 'screens/shared/splash_screen.dart';
 import 'providers/auth_provider.dart';
@@ -32,6 +33,7 @@ class MyApp extends ConsumerWidget {
       ),
       routes: {
         '/login': (context) => const LoginScreen(),
+        '/forgot-password': (context) => const ForgotPasswordScreen(),
         '/main': (context) => const MainTabsScreen(),
       },
     );

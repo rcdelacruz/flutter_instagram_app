@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../models/feed_models.dart';
 import '../../widgets/linear_gradient.dart';
-import '../../services/auth_service.dart';
+import '../../providers/auth_provider.dart';
 
 // Exact replica of React Native ProfileScreen (app/(tabs)/profile.tsx)
 class ProfileScreen extends ConsumerStatefulWidget {

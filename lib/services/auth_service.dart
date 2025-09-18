@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/user.dart' as app_user;
 
@@ -231,20 +230,3 @@ class AuthService {
     }
   }
 }
-
-// Provider for AuthService
-final authServiceProvider = Provider<AuthService>((ref) {
-  return AuthService();
-});
-
-// Provider for current user
-final currentUserProvider = StreamProvider<User?>((ref) {
-  final authService = ref.watch(authServiceProvider);
-  return authService.authStateChanges.map((state) => state.session?.user);
-});
-
-// Provider for authentication state
-final authStateProvider = StreamProvider<AuthState>((ref) {
-  final authService = ref.watch(authServiceProvider);
-  return authService.authStateChanges;
-});

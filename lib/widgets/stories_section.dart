@@ -91,15 +91,17 @@ class StoriesSection extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          const Text(
-            'Your Story',
-            style: TextStyle(
-              fontSize: 12,
-              color: Color(0xFF000000),
+          Flexible(
+            child: Text(
+              'Your Story',
+              style: TextStyle(
+                fontSize: 12,
+                color: Color(0xFF000000),
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),
@@ -150,15 +152,17 @@ class StoriesSection extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Text(
-            story.user.username,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Color(0xFF000000),
+          Flexible(
+            child: Text(
+              story.user.username,
+              style: const TextStyle(
+                fontSize: 12,
+                color: Color(0xFF000000),
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),
