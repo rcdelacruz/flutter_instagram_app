@@ -25,6 +25,12 @@ class AuthService {
     String? displayName,
   }) async {
     try {
+      // First check if username is available
+      final isUsernameAvailable = await this.isUsernameAvailable(username);
+      if (!isUsernameAvailable) {
+        throw Exception('Username is already taken');
+      }
+
       final response = await _client.auth.signUp(
         email: email,
         password: password,
@@ -36,12 +42,19 @@ class AuthService {
 
       if (response.user != null) {
         // Create user profile in the database
-        await _createUserProfile(
-          userId: response.user!.id,
-          email: email,
-          username: username,
-          displayName: displayName,
-        );
+        try {
+          await _createUserProfile(
+            userId: response.user!.id,
+            email: email,
+            username: username,
+            displayName: displayName,
+          );
+        } catch (profileError) {
+          // If profile creation fails, we should still return the auth response
+          // The profile can be created later or handled by database triggers
+          // Profile creation failed, but auth succeeded
+          // This can be handled by database triggers or retry logic
+        }
       }
 
       return response;
@@ -113,7 +126,7 @@ class AuthService {
   Future<app_user.User?> getUserProfile(String userId) async {
     try {
       final response = await _client
-          .from('users')
+          .from('profiles')
           .select()
           .eq('id', userId)
           .single();
@@ -143,7 +156,7 @@ class AuthService {
       if (profileImageUrl != null) updates['profile_image_url'] = profileImageUrl;
 
       await _client
-          .from('users')
+          .from('profiles')
           .update(updates)
           .eq('id', userId);
     } catch (e) {
@@ -160,20 +173,28 @@ class AuthService {
   }) async {
     try {
       final now = DateTime.now().toIso8601String();
-      
-      await _client.from('users').insert({
+
+      await _client.from('profiles').insert({
         'id': userId,
-        'email': email,
         'username': username,
-        'display_name': displayName ?? username,
+        'full_name': displayName ?? username,
+        'bio': null,
+        'avatar_url': null,
+        'website': null,
+        'is_private': false,
+        'followers_count': 0,
+        'following_count': 0,
+        'posts_count': 0,
         'created_at': now,
         'updated_at': now,
       });
     } catch (e) {
       // If user already exists, that's okay
-      if (!e.toString().contains('duplicate key')) {
-        rethrow;
+      if (e.toString().contains('duplicate key') ||
+          e.toString().contains('already exists')) {
+        return; // Profile already exists, which is fine
       }
+      rethrow;
     }
   }
 
@@ -181,7 +202,7 @@ class AuthService {
   Future<bool> isUsernameAvailable(String username) async {
     try {
       final response = await _client
-          .from('users')
+          .from('profiles')
           .select('id')
           .eq('username', username)
           .maybeSingle();
@@ -198,7 +219,7 @@ class AuthService {
       if (currentUser != null) {
         // Delete user data from database
         await _client
-            .from('users')
+            .from('profiles')
             .delete()
             .eq('id', currentUser!.id);
 

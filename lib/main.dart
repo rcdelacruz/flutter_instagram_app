@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'screens/auth_screen.dart';
-import 'screens/home_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/signup_screen.dart';
+import 'screens/main_tabs_screen.dart';
 import 'services/auth_service.dart';
 import 'config/app_theme.dart';
 
@@ -11,16 +12,25 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Load environment variables
-  await dotenv.load(fileName: ".env");
+  try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    // Handle missing .env file gracefully
+    debugPrint('Warning: .env file not found');
+  }
 
   // Initialize Supabase
-  await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL'] ?? '',
-    anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? '',
-    authOptions: const FlutterAuthClientOptions(
-      authFlowType: AuthFlowType.pkce,
-    ),
-  );
+  try {
+    await Supabase.initialize(
+      url: dotenv.env['SUPABASE_URL'] ?? '',
+      anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? '',
+      authOptions: const FlutterAuthClientOptions(
+        authFlowType: AuthFlowType.pkce,
+      ),
+    );
+  } catch (e) {
+    debugPrint('Warning: Supabase initialization failed: $e');
+  }
 
   runApp(
     const ProviderScope(
@@ -41,19 +51,20 @@ class InstagramApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       routes: {
-        '/auth': (context) => const AuthScreen(),
-        '/home': (context) => const HomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignUpScreen(),
+        '/main': (context) => const MainTabsScreen(),
       },
       home: authState.when(
         data: (state) {
           if (state.session != null) {
-            return const HomeScreen();
+            return const MainTabsScreen();
           } else {
-            return const AuthScreen();
+            return const LoginScreen();
           }
         },
         loading: () => const SplashScreen(),
-        error: (error, stack) => const AuthScreen(),
+        error: (error, stack) => const LoginScreen(),
       ),
     );
   }
