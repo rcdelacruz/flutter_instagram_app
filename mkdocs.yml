@@ -66,6 +66,7 @@ nav:
   - Home: index.md
   - Changelog: CHANGELOG.md
   - Getting Started:
+    - Flutter Installation: setup/flutter-installation.md
     - Environment Setup: setup/environment-setup.md
     - Project Structure: setup/project-structure.md
     - Package Management: setup/package-management.md
