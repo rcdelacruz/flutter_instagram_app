@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../models/feed_models.dart';
+import '../../models/feed_models.dart';
 
 // Exact replica of React Native SearchScreen (app/(tabs)/search.tsx)
 class SearchScreen extends StatefulWidget {

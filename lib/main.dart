@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'screens/login_screen.dart';
-import 'screens/signup_screen.dart';
-import 'screens/main_tabs_screen.dart';
-import 'services/auth_service.dart';
-import 'config/app_theme.dart';
+
+import 'app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,41 +31,12 @@ void main() async {
 
   runApp(
     const ProviderScope(
-      child: InstagramApp(),
+      child: MyApp(),
     ),
   );
 }
 
-class InstagramApp extends ConsumerWidget {
-  const InstagramApp({super.key});
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final authState = ref.watch(authStateProvider);
-
-    return MaterialApp(
-      title: 'Flutter Instagram Clone',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      routes: {
-        '/login': (context) => const LoginScreen(),
-        '/signup': (context) => const SignUpScreen(),
-        '/main': (context) => const MainTabsScreen(),
-      },
-      home: authState.when(
-        data: (state) {
-          if (state.session != null) {
-            return const MainTabsScreen();
-          } else {
-            return const LoginScreen();
-          }
-        },
-        loading: () => const SplashScreen(),
-        error: (error, stack) => const LoginScreen(),
-      ),
-    );
-  }
-}
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

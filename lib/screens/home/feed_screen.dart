@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../widgets/post_card.dart';
-import '../widgets/stories_section.dart';
-import '../widgets/linear_gradient.dart';
-import '../hooks/use_posts.dart';
+import '../../widgets/post_card.dart';
+import '../../widgets/stories_section.dart';
+import '../../widgets/linear_gradient.dart';
+import '../../hooks/use_posts.dart';
 
 // Exact replica of React Native FeedScreen (app/(tabs)/index.tsx)
 class FeedScreen extends StatefulWidget {
@@ -162,7 +162,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       SliverToBoxAdapter(
                         child: StoriesSection(stories: _postsNotifier.stories),
                       ),
-                      
+
                       // Posts
                       SliverList(
                         delegate: SliverChildBuilderDelegate(
@@ -183,7 +183,7 @@ class _FeedScreenState extends State<FeedScreen> {
                           childCount: _postsNotifier.posts.length,
                         ),
                       ),
-                      
+
                       // Bottom padding
                       const SliverToBoxAdapter(
                         child: SizedBox(height: 20),
