@@ -87,6 +87,10 @@ coverage/
 .env.production
 .env.staging
 
+# Python virtual environment for MkDocs
+venv/
+site/
+
 # Firebase
 **/ios/firebase_app_id_file.json
 **/ios/GoogleService-Info.plist
