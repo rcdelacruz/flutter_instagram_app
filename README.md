@@ -1,4 +1,4 @@
-# Flutter Rork App - Instagram Clone
+# Flutter Instagram Clone App
 
 A production-grade Flutter Instagram clone demonstrating modern Flutter development practices, clean architecture, and comprehensive documentation.
 
@@ -13,8 +13,8 @@ A production-grade Flutter Instagram clone demonstrating modern Flutter developm
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/flutter_rork_app.git
-cd flutter_rork_app
+git clone https://github.com/rcdelacruz/flutter_instagram_app.git
+cd flutter_instagram_app
 
 # Install dependencies
 flutter pub get

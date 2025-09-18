@@ -17,7 +17,7 @@ Flutter uses **pub.dev** as the official package repository, similar to npm for 
 The `pubspec.yaml` file is the heart of Flutter package management:
 
 ```yaml
-name: flutter_rork_app
+name: flutter_instagram_app
 description: A production-grade Flutter Instagram clone
 version: 1.0.0+1
 
@@ -28,7 +28,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+
   # Production dependencies
   riverpod: ^2.4.0
   go_router: ^12.0.0
@@ -36,7 +36,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
+
   # Development-only dependencies
   flutter_lints: ^3.0.0
   build_runner: ^2.4.0
@@ -51,10 +51,10 @@ dependencies:
   # Riverpod - Modern state management
   riverpod: ^2.4.0
   flutter_riverpod: ^2.4.0
-  
+
   # Alternative: BLoC pattern
   flutter_bloc: ^8.1.0
-  
+
   # Alternative: Provider (simpler)
   provider: ^6.1.0
 ```
@@ -65,7 +65,7 @@ dependencies:
 dependencies:
   # Go Router - Declarative routing
   go_router: ^12.0.0
-  
+
   # Alternative: Auto Route
   auto_route: ^7.8.0
 ```
@@ -76,13 +76,13 @@ dependencies:
 dependencies:
   # Dio - HTTP client
   dio: ^5.3.0
-  
+
   # Supabase - Backend as a Service
   supabase_flutter: ^2.0.0
-  
+
   # HTTP - Simple HTTP client
   http: ^1.1.0
-  
+
   # Connectivity - Network status
   connectivity_plus: ^5.0.0
 ```
@@ -94,16 +94,16 @@ dependencies:
   # Image handling
   cached_network_image: ^3.3.0
   image_picker: ^1.0.0
-  
+
   # SVG support
   flutter_svg: ^2.0.0
-  
+
   # Animations
   lottie: ^2.7.0
-  
+
   # Screen adaptation
   flutter_screenutil: ^5.9.0
-  
+
   # Icons
   cupertino_icons: ^1.0.0
   font_awesome_flutter: ^10.6.0
@@ -115,13 +115,13 @@ dependencies:
 dependencies:
   # Simple key-value storage
   shared_preferences: ^2.2.0
-  
+
   # Secure storage
   flutter_secure_storage: ^9.0.0
-  
+
   # SQLite database
   sqflite: ^2.3.0
-  
+
   # Object box (alternative)
   objectbox_flutter_libs: ^2.0.0
 ```
@@ -134,16 +134,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: ^5.4.0
-  
+
   # Code generation
   build_runner: ^2.4.0
   json_annotation: ^4.8.0
   json_serializable: ^6.7.0
-  
+
   # Linting
   flutter_lints: ^3.0.0
   very_good_analysis: ^5.1.0
-  
+
   # Code coverage
   coverage: ^1.7.0
 ```
@@ -202,13 +202,13 @@ Flutter follows semantic versioning (semver):
 dependencies:
   # Caret constraint (recommended)
   package_name: ^1.2.3  # >=1.2.3 <2.0.0
-  
+
   # Exact version
   package_name: 1.2.3
-  
+
   # Range constraint
   package_name: '>=1.2.3 <2.0.0'
-  
+
   # Any version (not recommended)
   package_name: any
 ```
@@ -219,17 +219,17 @@ dependencies:
 dependencies:
   # Use caret constraints for stability
   riverpod: ^2.4.0
-  
+
   # Pin critical packages if needed
   flutter:
     sdk: flutter
-  
+
   # Use git dependencies for forks
   custom_package:
     git:
       url: https://github.com/user/custom_package.git
       ref: main
-  
+
   # Use path dependencies for local packages
   local_package:
     path: ../local_package
@@ -244,10 +244,10 @@ dependencies:
   # Material Design
   flutter:
     sdk: flutter
-  
+
   # Cupertino (iOS style)
   cupertino_icons: ^1.0.0
-  
+
   # Custom UI libraries
   flutter_staggered_grid_view: ^0.7.0
   shimmer: ^3.0.0
@@ -261,13 +261,13 @@ dependencies:
   # Date/time handling
   intl: ^0.18.0
   timeago: ^3.5.0
-  
+
   # Functional programming
   dartz: ^0.10.0
-  
+
   # Logging
   logger: ^2.0.0
-  
+
   # UUID generation
   uuid: ^4.1.0
 ```
@@ -278,16 +278,16 @@ dependencies:
 dependencies:
   # Device info
   device_info_plus: ^9.1.0
-  
+
   # Package info
   package_info_plus: ^4.2.0
-  
+
   # URL launcher
   url_launcher: ^6.2.0
-  
+
   # Share functionality
   share_plus: ^7.2.0
-  
+
   # Permissions
   permission_handler: ^11.0.0
 ```
@@ -352,7 +352,7 @@ flutter pub deps
 dependencies:
   # Good: Specific functionality
   cached_network_image: ^3.3.0
-  
+
   # Avoid: Large, monolithic packages
   # unless absolutely necessary
 ```

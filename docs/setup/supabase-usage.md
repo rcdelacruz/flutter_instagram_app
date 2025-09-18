@@ -12,13 +12,13 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthService {
   final SupabaseClient _client = Supabase.instance.client;
-  
+
   // Get current user
   User? get currentUser => _client.auth.currentUser;
-  
+
   // Get auth state stream
   Stream<AuthState> get authStateChanges => _client.auth.onAuthStateChange;
-  
+
   // Sign up with email and password
   Future<AuthResponse> signUp({
     required String email,
@@ -34,7 +34,7 @@ class AuthService {
         'full_name': fullName,
       },
     );
-    
+
     if (response.user != null) {
       // Create profile after successful signup
       await _createProfile(
@@ -43,10 +43,10 @@ class AuthService {
         fullName: fullName,
       );
     }
-    
+
     return response;
   }
-  
+
   // Sign in with email and password
   Future<AuthResponse> signIn({
     required String email,
@@ -57,30 +57,30 @@ class AuthService {
       password: password,
     );
   }
-  
+
   // Sign in with Google
   Future<bool> signInWithGoogle() async {
     try {
       await _client.auth.signInWithOAuth(
         OAuthProvider.google,
-        redirectTo: 'com.rorkapp.flutter://login-callback',
+        redirectTo: 'com.instagramapp.flutter://login-callback',
       );
       return true;
     } catch (e) {
       return false;
     }
   }
-  
+
   // Sign out
   Future<void> signOut() async {
     await _client.auth.signOut();
   }
-  
+
   // Reset password
   Future<void> resetPassword(String email) async {
     await _client.auth.resetPasswordForEmail(email);
   }
-  
+
   // Create user profile
   Future<void> _createProfile({
     required String userId,
@@ -122,15 +122,15 @@ final currentUserProvider = Provider<User?>((ref) {
 // Auth state notifier for complex auth operations
 class AuthNotifier extends StateNotifier<AsyncValue<User?>> {
   final AuthService _authService;
-  
+
   AuthNotifier(this._authService) : super(const AsyncValue.loading()) {
     _init();
   }
-  
+
   void _init() {
     state = AsyncValue.data(_authService.currentUser);
   }
-  
+
   Future<void> signUp({
     required String email,
     required String password,
@@ -138,7 +138,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<User?>> {
     required String fullName,
   }) async {
     state = const AsyncValue.loading();
-    
+
     try {
       final response = await _authService.signUp(
         email: email,
@@ -146,7 +146,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<User?>> {
         username: username,
         fullName: fullName,
       );
-      
+
       if (response.user != null) {
         state = AsyncValue.data(response.user);
       } else {
@@ -156,19 +156,19 @@ class AuthNotifier extends StateNotifier<AsyncValue<User?>> {
       state = AsyncValue.error(error, stackTrace);
     }
   }
-  
+
   Future<void> signIn({
     required String email,
     required String password,
   }) async {
     state = const AsyncValue.loading();
-    
+
     try {
       final response = await _authService.signIn(
         email: email,
         password: password,
       );
-      
+
       if (response.user != null) {
         state = AsyncValue.data(response.user);
       } else {
@@ -178,7 +178,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<User?>> {
       state = AsyncValue.error(error, stackTrace);
     }
   }
-  
+
   Future<void> signOut() async {
     try {
       await _authService.signOut();
@@ -205,7 +205,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class PostService {
   final SupabaseClient _client = Supabase.instance.client;
-  
+
   // Get feed posts
   Future<List<Map<String, dynamic>>> getFeedPosts({
     int limit = 20,
@@ -235,10 +235,10 @@ class PostService {
         ''')
         .order('created_at', ascending: false)
         .range(offset, offset + limit - 1);
-    
+
     return List<Map<String, dynamic>>.from(response);
   }
-  
+
   // Create a new post
   Future<Map<String, dynamic>> createPost({
     required String imageUrl,
@@ -247,7 +247,7 @@ class PostService {
   }) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     final response = await _client
         .from('posts')
         .insert({
@@ -258,33 +258,33 @@ class PostService {
         })
         .select()
         .single();
-    
+
     return response;
   }
-  
+
   // Like a post
   Future<void> likePost(String postId) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     await _client.from('likes').insert({
       'user_id': userId,
       'post_id': postId,
     });
   }
-  
+
   // Unlike a post
   Future<void> unlikePost(String postId) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     await _client
         .from('likes')
         .delete()
         .eq('user_id', userId)
         .eq('post_id', postId);
   }
-  
+
   // Add comment to post
   Future<Map<String, dynamic>> addComment({
     required String postId,
@@ -292,7 +292,7 @@ class PostService {
   }) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     final response = await _client
         .from('comments')
         .insert({
@@ -308,15 +308,15 @@ class PostService {
           )
         ''')
         .single();
-    
+
     return response;
   }
-  
+
   // Delete post
   Future<void> deletePost(String postId) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     await _client
         .from('posts')
         .delete()
@@ -332,7 +332,7 @@ class PostService {
 // lib/features/profile/services/user_service.dart
 class UserService {
   final SupabaseClient _client = Supabase.instance.client;
-  
+
   // Get user profile
   Future<Map<String, dynamic>?> getUserProfile(String userId) async {
     final response = await _client
@@ -340,10 +340,10 @@ class UserService {
         .select()
         .eq('id', userId)
         .maybeSingle();
-    
+
     return response;
   }
-  
+
   // Update user profile
   Future<Map<String, dynamic>> updateProfile({
     required String userId,
@@ -354,63 +354,63 @@ class UserService {
     String? avatarUrl,
   }) async {
     final updates = <String, dynamic>{};
-    
+
     if (username != null) updates['username'] = username;
     if (fullName != null) updates['full_name'] = fullName;
     if (bio != null) updates['bio'] = bio;
     if (website != null) updates['website'] = website;
     if (avatarUrl != null) updates['avatar_url'] = avatarUrl;
-    
+
     updates['updated_at'] = DateTime.now().toIso8601String();
-    
+
     final response = await _client
         .from('profiles')
         .update(updates)
         .eq('id', userId)
         .select()
         .single();
-    
+
     return response;
   }
-  
+
   // Follow user
   Future<void> followUser(String userId) async {
     final currentUserId = _client.auth.currentUser?.id;
     if (currentUserId == null) throw Exception('User not authenticated');
-    
+
     await _client.from('follows').insert({
       'follower_id': currentUserId,
       'following_id': userId,
     });
   }
-  
+
   // Unfollow user
   Future<void> unfollowUser(String userId) async {
     final currentUserId = _client.auth.currentUser?.id;
     if (currentUserId == null) throw Exception('User not authenticated');
-    
+
     await _client
         .from('follows')
         .delete()
         .eq('follower_id', currentUserId)
         .eq('following_id', userId);
   }
-  
+
   // Check if following user
   Future<bool> isFollowing(String userId) async {
     final currentUserId = _client.auth.currentUser?.id;
     if (currentUserId == null) return false;
-    
+
     final response = await _client
         .from('follows')
         .select()
         .eq('follower_id', currentUserId)
         .eq('following_id', userId)
         .maybeSingle();
-    
+
     return response != null;
   }
-  
+
   // Get user's followers
   Future<List<Map<String, dynamic>>> getFollowers(String userId) async {
     final response = await _client
@@ -424,10 +424,10 @@ class UserService {
           )
         ''')
         .eq('following_id', userId);
-    
+
     return List<Map<String, dynamic>>.from(response);
   }
-  
+
   // Get user's following
   Future<List<Map<String, dynamic>>> getFollowing(String userId) async {
     final response = await _client
@@ -441,7 +441,7 @@ class UserService {
           )
         ''')
         .eq('follower_id', userId);
-    
+
     return List<Map<String, dynamic>>.from(response);
   }
 }
@@ -460,16 +460,16 @@ import 'package:path/path.dart' as path;
 
 class StorageService {
   final SupabaseClient _client = Supabase.instance.client;
-  
+
   // Upload avatar image
   Future<String> uploadAvatar(XFile imageFile) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     final bytes = await imageFile.readAsBytes();
     final fileExt = path.extension(imageFile.name);
     final fileName = '$userId/avatar$fileExt';
-    
+
     await _client.storage.from('avatars').uploadBinary(
       fileName,
       bytes,
@@ -478,19 +478,19 @@ class StorageService {
         upsert: true,
       ),
     );
-    
+
     return _client.storage.from('avatars').getPublicUrl(fileName);
   }
-  
+
   // Upload post image
   Future<String> uploadPostImage(XFile imageFile) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     final bytes = await imageFile.readAsBytes();
     final fileExt = path.extension(imageFile.name);
     final fileName = '$userId/${DateTime.now().millisecondsSinceEpoch}$fileExt';
-    
+
     await _client.storage.from('posts').uploadBinary(
       fileName,
       bytes,
@@ -499,19 +499,19 @@ class StorageService {
         upsert: false,
       ),
     );
-    
+
     return _client.storage.from('posts').getPublicUrl(fileName);
   }
-  
+
   // Upload story image
   Future<String> uploadStoryImage(XFile imageFile) async {
     final userId = _client.auth.currentUser?.id;
     if (userId == null) throw Exception('User not authenticated');
-    
+
     final bytes = await imageFile.readAsBytes();
     final fileExt = path.extension(imageFile.name);
     final fileName = '$userId/story_${DateTime.now().millisecondsSinceEpoch}$fileExt';
-    
+
     await _client.storage.from('stories').uploadBinary(
       fileName,
       bytes,
@@ -520,15 +520,15 @@ class StorageService {
         upsert: false,
       ),
     );
-    
+
     return _client.storage.from('stories').getPublicUrl(fileName);
   }
-  
+
   // Delete file from storage
   Future<void> deleteFile(String bucket, String fileName) async {
     await _client.storage.from(bucket).remove([fileName]);
   }
-  
+
   // Get file URL
   String getPublicUrl(String bucket, String fileName) {
     return _client.storage.from(bucket).getPublicUrl(fileName);
@@ -547,7 +547,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class RealtimeService {
   final SupabaseClient _client = Supabase.instance.client;
   RealtimeChannel? _channel;
-  
+
   // Subscribe to post changes
   void subscribeToPostChanges({
     required Function(Map<String, dynamic>) onInsert,
@@ -576,7 +576,7 @@ class RealtimeService {
         )
         .subscribe();
   }
-  
+
   // Subscribe to likes changes for a specific post
   void subscribeToLikesChanges({
     required String postId,
@@ -609,7 +609,7 @@ class RealtimeService {
         )
         .subscribe();
   }
-  
+
   // Subscribe to comments changes for a specific post
   void subscribeToCommentsChanges({
     required String postId,
@@ -630,7 +630,7 @@ class RealtimeService {
         )
         .subscribe();
   }
-  
+
   // Unsubscribe from changes
   void unsubscribe() {
     _channel?.unsubscribe();
@@ -681,7 +681,7 @@ class SupabaseErrorHandler {
           return error.message;
       }
     }
-    
+
     return 'An unexpected error occurred';
   }
 }
@@ -709,13 +709,13 @@ Future<bool> isConnected() async {
 // Cache data locally for offline support
 class CacheService {
   static const String _postsKey = 'cached_posts';
-  
+
   static Future<void> cachePosts(List<Map<String, dynamic>> posts) async {
     final prefs = await SharedPreferences.getInstance();
     final jsonString = jsonEncode(posts);
     await prefs.setString(_postsKey, jsonString);
   }
-  
+
   static Future<List<Map<String, dynamic>>> getCachedPosts() async {
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(_postsKey);
@@ -737,7 +737,7 @@ Future<List<Map<String, dynamic>>> getPaginatedPosts({
   int pageSize = 20,
 }) async {
   final offset = page * pageSize;
-  
+
   return await _client
       .from('posts')
       .select()

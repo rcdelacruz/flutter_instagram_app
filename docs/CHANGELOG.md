@@ -134,7 +134,7 @@ This release marks the completion of the comprehensive Flutter Instagram clone d
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/rcdelacruz/flutter_rork_app.git
+   git clone https://github.com/rcdelacruz/flutter_instagram_app.git
    ```
 
 2. **Install documentation dependencies**

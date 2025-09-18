@@ -1,4 +1,4 @@
-name: flutter_rork_app
+name: flutter_instagram_app
 description: "A production-grade Flutter Instagram clone demonstrating modern Flutter development practices, clean architecture, and comprehensive documentation."
 publish_to: 'none'
 
@@ -98,7 +98,7 @@ dev_dependencies:
   mockito: ^5.4.2
   integration_test:
     sdk: flutter
-  patrol: ^2.6.0
+  patrol: ^3.19.0
 
   # Development Tools
   flutter_launcher_icons: ^0.13.1

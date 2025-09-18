@@ -14,7 +14,7 @@ This guide covers the complete setup of Supabase for the Flutter Instagram clone
 2. Click **"New project"**
 3. Choose your organization
 4. Fill in project details:
-   - **Name**: `flutter-rork-app` (or your preferred name)
+   - **Name**: `flutter-instagram-app` (or your preferred name)
    - **Database Password**: Generate a strong password and save it
    - **Region**: Choose the region closest to your users
 5. Click **"Create new project"**
@@ -29,10 +29,10 @@ This guide covers the complete setup of Supabase for the Flutter Instagram clone
 dependencies:
   flutter:
     sdk: flutter
-  
+
   # Supabase
   supabase_flutter: ^2.0.0
-  
+
   # Additional packages for Instagram clone
   image_picker: ^1.0.0
   cached_network_image: ^3.3.0
@@ -61,10 +61,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class SupabaseConfig {
   static late SupabaseClient client;
-  
+
   static Future<void> initialize() async {
     await dotenv.load(fileName: ".env");
-    
+
     await Supabase.initialize(
       url: dotenv.env['SUPABASE_URL']!,
       anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
@@ -78,7 +78,7 @@ class SupabaseConfig {
         retryAttempts: 10,
       ),
     );
-    
+
     client = Supabase.instance.client;
   }
 }
@@ -86,9 +86,9 @@ class SupabaseConfig {
 // Usage in main.dart
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   await SupabaseConfig.initialize();
-  
+
   runApp(const MyApp());
 }
 ```
@@ -413,7 +413,7 @@ CREATE TRIGGER follow_counts_trigger
 
 ```sql
 -- Create storage buckets
-INSERT INTO storage.buckets (id, name, public) VALUES 
+INSERT INTO storage.buckets (id, name, public) VALUES
 ('avatars', 'avatars', true),
 ('posts', 'posts', true),
 ('stories', 'stories', true);
@@ -428,19 +428,19 @@ CREATE POLICY "Avatar images are publicly accessible" ON storage.objects
 
 CREATE POLICY "Users can upload their own avatar" ON storage.objects
   FOR INSERT WITH CHECK (
-    bucket_id = 'avatars' AND 
+    bucket_id = 'avatars' AND
     auth.uid()::text = (storage.foldername(name))[1]
   );
 
 CREATE POLICY "Users can update their own avatar" ON storage.objects
   FOR UPDATE USING (
-    bucket_id = 'avatars' AND 
+    bucket_id = 'avatars' AND
     auth.uid()::text = (storage.foldername(name))[1]
   );
 
 CREATE POLICY "Users can delete their own avatar" ON storage.objects
   FOR DELETE USING (
-    bucket_id = 'avatars' AND 
+    bucket_id = 'avatars' AND
     auth.uid()::text = (storage.foldername(name))[1]
   );
 
@@ -450,13 +450,13 @@ CREATE POLICY "Post images are publicly accessible" ON storage.objects
 
 CREATE POLICY "Users can upload post images" ON storage.objects
   FOR INSERT WITH CHECK (
-    bucket_id = 'posts' AND 
+    bucket_id = 'posts' AND
     auth.uid()::text = (storage.foldername(name))[1]
   );
 
 CREATE POLICY "Users can delete their own post images" ON storage.objects
   FOR DELETE USING (
-    bucket_id = 'posts' AND 
+    bucket_id = 'posts' AND
     auth.uid()::text = (storage.foldername(name))[1]
   );
 
@@ -466,13 +466,13 @@ CREATE POLICY "Story images are publicly accessible" ON storage.objects
 
 CREATE POLICY "Users can upload story images" ON storage.objects
   FOR INSERT WITH CHECK (
-    bucket_id = 'stories' AND 
+    bucket_id = 'stories' AND
     auth.uid()::text = (storage.foldername(name))[1]
   );
 
 CREATE POLICY "Users can delete their own story images" ON storage.objects
   FOR DELETE USING (
-    bucket_id = 'stories' AND 
+    bucket_id = 'stories' AND
     auth.uid()::text = (storage.foldername(name))[1]
   );
 ```
@@ -484,9 +484,9 @@ CREATE POLICY "Users can delete their own story images" ON storage.objects
 1. Go to **Authentication** → **Settings** in your Supabase dashboard
 2. Configure the following:
 
-**Site URL**: `com.rorkapp.flutter://login-callback` (for mobile)
+**Site URL**: `com.instagramapp.flutter://login-callback` (for mobile)
 **Redirect URLs**:
-- `com.rorkapp.flutter://login-callback`
+- `com.instagramapp.flutter://login-callback`
 - `http://localhost:3000` (for web development)
 
 ### 7.2 Enable Social Providers (Optional)

@@ -7,13 +7,13 @@ Comprehensive testing strategy for Flutter applications covering unit tests, wid
 ```
     /\
    /  \    E2E Tests (Few)
-  /____\   
+  /____\
  /      \   Integration Tests (Some)
-/________\  
+/________\
 \        /  Widget Tests (Many)
- \______/   
+ \______/
   \    /    Unit Tests (Most)
-   \__/     
+   \__/
 ```
 
 ## 1. Unit Tests
@@ -28,7 +28,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 
-import 'package:flutter_rork_app/core/services/auth_service.dart';
+import 'package:flutter_instagram_app/core/services/auth_service.dart';
 
 @GenerateMocks([SupabaseClient])
 import 'auth_service_test.mocks.dart';
@@ -117,7 +117,7 @@ void main() {
       addTearDown(container.dispose);
 
       final notifier = container.read(authNotifierProvider.notifier);
-      
+
       await notifier.signIn(
         email: 'test@example.com',
         password: 'password123',
@@ -141,13 +141,13 @@ Test individual widgets and their interactions.
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_rork_app/shared/widgets/buttons/app_button.dart';
+import 'package:flutter_instagram_app/shared/widgets/buttons/app_button.dart';
 
 void main() {
   group('AppButton', () {
     testWidgets('should display text correctly', (tester) async {
       const buttonText = 'Test Button';
-      
+
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
@@ -161,7 +161,7 @@ void main() {
 
     testWidgets('should call onPressed when tapped', (tester) async {
       bool wasPressed = false;
-      
+
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -273,7 +273,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'package:flutter_rork_app/main.dart' as app;
+import 'package:flutter_instagram_app/main.dart' as app;
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -413,7 +413,7 @@ void main() {
       );
 
       await tester.pumpAndSettle();
-      
+
       // Verify no frame drops
       expect(tester.binding.hasScheduledFrame, isFalse);
     });
@@ -433,7 +433,7 @@ Matcher hasErrorText(String text) => _HasErrorText(text);
 
 class _HasErrorText extends Matcher {
   final String expectedText;
-  
+
   _HasErrorText(this.expectedText);
 
   @override

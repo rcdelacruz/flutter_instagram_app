@@ -1,10 +1,10 @@
-site_name: Flutter Developer Guide
-site_description: Comprehensive guide for building production-grade Flutter applications with clean architecture and best practices
+site_name: Flutter Instagram Clone Developer Guide
+site_description: Comprehensive guide for building production-grade Flutter Instagram clone applications with clean architecture and best practices
 site_author: Flutter Development Team
-site_url: https://rcdelacruz.github.io/flutter_rork_app
+site_url: https://rcdelacruz.github.io/flutter_instagram_app
 
-repo_name: rcdelacruz/flutter_rork_app
-repo_url: https://github.com/rcdelacruz/flutter_rork_app
+repo_name: rcdelacruz/flutter_instagram_app
+repo_url: https://github.com/rcdelacruz/flutter_instagram_app
 edit_uri: edit/main/docs/
 
 theme:
@@ -124,6 +124,9 @@ nav:
     - Hot Reload & Hot Restart: maintenance/hot-reload.md
     - Migrations: maintenance/migrations.md
     - Legacy Support: maintenance/legacy-support.md
+  - Training:
+    - Self-Paced Training Guide: training/self-paced-training-guide.md
+    - Project Ideas: training/project-ideas.md
   - Documentation:
     - MkDocs Setup: setup-mkdocs.md
 

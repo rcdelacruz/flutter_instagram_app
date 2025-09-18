@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'screens/auth_screen.dart';
+import 'screens/home_screen.dart';
+import 'services/auth_service.dart';
+import 'config/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,24 +24,37 @@ void main() async {
 
   runApp(
     const ProviderScope(
-      child: RorkApp(),
+      child: InstagramApp(),
     ),
   );
 }
 
-class RorkApp extends ConsumerWidget {
-  const RorkApp({super.key});
+class InstagramApp extends ConsumerWidget {
+  const InstagramApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authStateProvider);
+
     return MaterialApp(
-      title: 'Flutter Rork App',
+      title: 'Flutter Instagram Clone',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+      theme: AppTheme.lightTheme,
+      routes: {
+        '/auth': (context) => const AuthScreen(),
+        '/home': (context) => const HomeScreen(),
+      },
+      home: authState.when(
+        data: (state) {
+          if (state.session != null) {
+            return const HomeScreen();
+          } else {
+            return const AuthScreen();
+          }
+        },
+        loading: () => const SplashScreen(),
+        error: (error, stack) => const AuthScreen(),
       ),
-      home: const SplashScreen(),
     );
   }
 }
@@ -60,7 +77,7 @@ class SplashScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Flutter Rork App',
+              'Instagram Clone',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Colors.blue,
@@ -68,7 +85,7 @@ class SplashScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Instagram Clone',
+              'Built with Flutter',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: Colors.grey[600],
               ),

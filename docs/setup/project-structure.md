@@ -17,7 +17,7 @@ Learn how to organize your Flutter project for scalability, maintainability, and
 **Perfect for**: New projects, MVPs, small teams, learning
 
 ```
-flutter_rork_app/
+flutter_instagram_app/
 ├── lib/
 │   ├── main.dart                       # App entry point
 │   ├── app.dart                        # App configuration
@@ -96,7 +96,7 @@ flutter_rork_app/
 **Perfect for**: 10-30 screens, multiple developers, clear feature boundaries
 
 ```
-flutter_rork_app/
+flutter_instagram_app/
 ├── lib/
 │   ├── main.dart                       # App entry point
 │   ├── app.dart                        # App configuration
@@ -164,7 +164,7 @@ flutter_rork_app/
 **Perfect for**: 30+ screens, large teams, complex business logic
 
 ```
-flutter_rork_app/
+flutter_instagram_app/
 ├── lib/
 │   ├── main.dart                       # App entry point
 │   ├── app.dart                        # App configuration
@@ -249,8 +249,8 @@ import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
 // 4. Internal imports (absolute paths)
-import 'package:flutter_rork_app/features/auth/auth.dart';
-import 'package:flutter_rork_app/shared/widgets/widgets.dart';
+import 'package:flutter_instagram_app/features/auth/auth.dart';
+import 'package:flutter_instagram_app/shared/widgets/widgets.dart';
 
 // 5. Relative imports (same feature)
 import '../widgets/login_form.dart';
@@ -262,7 +262,7 @@ import 'register_screen.dart';
 ### pubspec.yaml Structure
 
 ```yaml
-name: flutter_rork_app
+name: flutter_instagram_app
 description: A production-grade Flutter Instagram clone
 version: 1.0.0+1
 
@@ -273,22 +273,22 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+
   # State Management
   riverpod: ^2.4.0
   flutter_riverpod: ^2.4.0
-  
+
   # Navigation
   go_router: ^12.0.0
-  
+
   # Network & API
   dio: ^5.3.0
   supabase_flutter: ^2.0.0
-  
+
   # UI & Styling
   cached_network_image: ^3.3.0
   flutter_svg: ^2.0.0
-  
+
   # Storage
   shared_preferences: ^2.2.0
   flutter_secure_storage: ^9.0.0
@@ -301,12 +301,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
+
   assets:
     - assets/images/
     - assets/icons/
     - assets/animations/
-  
+
   fonts:
     - family: CustomFont
       fonts:

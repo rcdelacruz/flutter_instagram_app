@@ -103,32 +103,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: '11'
-          
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.35.0'
-          
+
       - name: Get dependencies
         run: flutter pub get
-        
+
       - name: Run tests
         run: flutter test
-        
+
       - name: Build AAB
         run: flutter build appbundle --release
-        
+
       - name: Upload to Play Store
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-          packageName: com.rorkapp.flutter
+          packageName: com.instagramapp.flutter
           releaseFiles: build/app/outputs/bundle/release/app-release.aab
           track: production
 ```
@@ -197,21 +197,21 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.35.0'
-          
+
       - name: Install dependencies
         run: flutter pub get
-        
+
       - name: Run tests
         run: flutter test
-        
+
       - name: Build iOS
         run: flutter build ios --release --no-codesign
-        
+
       - name: Build and upload to App Store
         uses: yukiarrr/ios-build-action@v1.4.0
         with:
@@ -287,18 +287,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.35.0'
-          
+
       - name: Get dependencies
         run: flutter pub get
-        
+
       - name: Build web
-        run: flutter build web --base-href "/flutter_rork_app/"
-        
+        run: flutter build web --base-href "/flutter_instagram_app/"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -328,7 +328,7 @@ class EnvironmentConfig {
         return Environment.development;
     }
   }
-  
+
   static String get apiBaseUrl {
     switch (environment) {
       case Environment.development:
@@ -394,7 +394,7 @@ class MyWidget extends StatelessWidget {
 flutter:
   assets:
     - assets/images/
-  
+
   # Use different resolutions
   assets:
     - assets/images/logo.png
@@ -426,13 +426,13 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 class CrashService {
   static void initialize() {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-    
+
     PlatformDispatcher.instance.onError = (error, stack) {
       FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
       return true;
     };
   }
-  
+
   static void recordError(dynamic error, StackTrace? stack) {
     FirebaseCrashlytics.instance.recordError(error, stack);
   }
@@ -449,7 +449,7 @@ class PerformanceService {
   static Future<T> trace<T>(String name, Future<T> Function() operation) async {
     final trace = FirebasePerformance.instance.newTrace(name);
     await trace.start();
-    
+
     try {
       final result = await operation();
       trace.setMetric('success', 1);
@@ -481,13 +481,13 @@ import 'package:dio_certificate_pinning/dio_certificate_pinning.dart';
 class NetworkService {
   static Dio createDio() {
     final dio = Dio();
-    
+
     dio.interceptors.add(
       CertificatePinningInterceptor(
         allowedSHAFingerprints: ['SHA256:XXXXXX'],
       ),
     );
-    
+
     return dio;
   }
 }
