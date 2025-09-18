@@ -84,13 +84,13 @@ class Helpers {
   }
 
   // Debounce function for search
+  static Timer? _debounceTimer;
   static void debounce(
     Duration duration,
     VoidCallback callback,
   ) {
-    Timer? timer;
-    timer?.cancel();
-    timer = Timer(duration, callback);
+    _debounceTimer?.cancel();
+    _debounceTimer = Timer(duration, callback);
   }
 
   // Hide keyboard
