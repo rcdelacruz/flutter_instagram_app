@@ -1,0 +1,3718 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive guide for building production-grade Flutter Instagram clone applications with clean architecture and best practices">
+      
+      
+        <meta name="author" content="Flutter Development Team">
+      
+      
+        <link rel="canonical" href="https://rcdelacruz.github.io/flutter_instagram_app/training/self-paced-training-guide/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../project-ideas/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Self-Paced Training Guide - Flutter Instagram Clone Developer Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Work Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#self-paced-flutter-training-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Flutter Instagram Clone Developer Guide" class="md-header__button md-logo" aria-label="Flutter Instagram Clone Developer Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Flutter Instagram Clone Developer Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Self-Paced Training Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rcdelacruz/flutter_instagram_app" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rcdelacruz/flutter_instagram_app
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Flutter Instagram Clone Developer Guide" class="md-nav__button md-logo" aria-label="Flutter Instagram Clone Developer Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Flutter Instagram Clone Developer Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rcdelacruz/flutter_instagram_app" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rcdelacruz/flutter_instagram_app
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Training
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Training
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Self-Paced Training Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Self-Paced Training Guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#training-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Training Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Audience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Training Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-foundation-weeks-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Foundation (Weeks 1-2)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Foundation (Weeks 1-2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-flutter-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 1: Flutter Fundamentals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2-project-structure-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 2: Project Structure &amp; Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-core-development-weeks-3-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Core Development (Weeks 3-6)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Core Development (Weeks 3-6)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-3-authentication-user-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 3: Authentication &amp; User Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4-uiux-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 4: UI/UX Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 5: Data Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-6-media-file-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 6: Media &amp; File Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-advanced-features-weeks-7-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Advanced Features (Weeks 7-10)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Advanced Features (Weeks 7-10)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-7-social-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 7: Social Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-real-time-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8: Real-time Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-9-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 9: Performance &amp; Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-testing-quality-assurance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 10: Testing &amp; Quality Assurance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-production-deployment-weeks-11-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Production &amp; Deployment (Weeks 11-12)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Production &amp; Deployment (Weeks 11-12)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-11-deployment-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 11: Deployment Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-monitoring-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 12: Monitoring &amp; Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hands-On Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-1-personal-profile-app-week-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 1: Personal Profile App (Week 2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-2-photo-gallery-app-week-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 2: Photo Gallery App (Week 4)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-3-chat-application-week-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 3: Chat Application (Week 6)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-4-e-commerce-app-week-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 4: E-commerce App (Week 8)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-5-fitness-tracker-week-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 5: Fitness Tracker (Week 10)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assessment-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Checkpoints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment Checkpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-4-checkpoint-basic-competency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 4 Checkpoint: Basic Competency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-checkpoint-intermediate-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8 Checkpoint: Intermediate Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-checkpoint-production-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 12 Checkpoint: Production Ready
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certification-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certification Path
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Certification Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flutter-developer-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flutter Developer Certificate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Reading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practice-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice Platforms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-youre-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      When You're Stuck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mentorship-opportunities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mentorship Opportunities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-ideas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/flutter-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flutter Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/project-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/package-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Package Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/supabase-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supabase Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/supabase-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supabase Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/supabase-storage-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supabase Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/app-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    App Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/state-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    State Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/widget-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Widget Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    UI Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UI Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/design-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/responsive-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Responsive Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/cross-platform-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cross-Platform Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/animations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Animations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/styling-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Styling Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Platform Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Platform Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../native/flutter-cli-vs-alternatives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flutter CLI vs Alternatives
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../native/platform-channels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Platform Channels
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../native/platform-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Platform Specific
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../native/permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Development Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/development-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/debugging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/code-quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Quality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/testing-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Troubleshooting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/ios-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iOS Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/android-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Android Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/common-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/build-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data & Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Data & Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/api-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/supabase-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supabase Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/state-sync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    State Synchronization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/offline-support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Offline Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/realtime-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Realtime Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/api-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/app-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    App Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/data-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/deployment-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/build-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/app-store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    App Store
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/google-play/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Play
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Monitoring
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/crash-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Crash Reporting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitoring/ab-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A/B Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Maintenance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Maintenance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maintenance/version-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Version Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maintenance/hot-reload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hot Reload & Hot Restart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maintenance/migrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Migrations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maintenance/legacy-support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Legacy Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup-mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#training-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Training Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Audience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Training Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-foundation-weeks-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Foundation (Weeks 1-2)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Foundation (Weeks 1-2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-flutter-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 1: Flutter Fundamentals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2-project-structure-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 2: Project Structure &amp; Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-core-development-weeks-3-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Core Development (Weeks 3-6)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Core Development (Weeks 3-6)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-3-authentication-user-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 3: Authentication &amp; User Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4-uiux-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 4: UI/UX Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 5: Data Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-6-media-file-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 6: Media &amp; File Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-advanced-features-weeks-7-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Advanced Features (Weeks 7-10)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Advanced Features (Weeks 7-10)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-7-social-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 7: Social Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-real-time-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8: Real-time Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-9-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 9: Performance &amp; Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-testing-quality-assurance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 10: Testing &amp; Quality Assurance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-production-deployment-weeks-11-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Production &amp; Deployment (Weeks 11-12)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Production &amp; Deployment (Weeks 11-12)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-11-deployment-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 11: Deployment Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-monitoring-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 12: Monitoring &amp; Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hands-On Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-1-personal-profile-app-week-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 1: Personal Profile App (Week 2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-2-photo-gallery-app-week-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 2: Photo Gallery App (Week 4)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-3-chat-application-week-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 3: Chat Application (Week 6)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-4-e-commerce-app-week-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 4: E-commerce App (Week 8)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-5-fitness-tracker-week-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project 5: Fitness Tracker (Week 10)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assessment-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Checkpoints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment Checkpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-4-checkpoint-basic-competency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 4 Checkpoint: Basic Competency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-checkpoint-intermediate-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8 Checkpoint: Intermediate Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12-checkpoint-production-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 12 Checkpoint: Production Ready
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certification-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certification Path
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Certification Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flutter-developer-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flutter Developer Certificate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Reading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practice-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice Platforms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-youre-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      When You're Stuck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mentorship-opportunities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mentorship Opportunities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="self-paced-flutter-training-guide">Self-Paced Flutter Training Guide<a class="headerlink" href="#self-paced-flutter-training-guide" title="Permanent link">&para;</a></h1>
+<p>A comprehensive training program for developers to master Flutter development using the Instagram Clone project as a foundation.</p>
+<h2 id="training-overview">Training Overview<a class="headerlink" href="#training-overview" title="Permanent link">&para;</a></h2>
+<p>This self-paced training program is designed for both new and experienced developers who want to master Flutter development. Using our Instagram Clone project as a foundation, you'll learn production-grade Flutter development practices, clean architecture, and modern development workflows.</p>
+<h3 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>New Flutter Developers</strong>: Coming from other mobile frameworks or web development</li>
+<li><strong>Experienced Mobile Developers</strong>: iOS/Android developers transitioning to Flutter</li>
+<li><strong>Backend Developers</strong>: Looking to expand into mobile development</li>
+<li><strong>Full-Stack Developers</strong>: Adding mobile skills to their toolkit</li>
+</ul>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Basic programming knowledge (any language)</li>
+<li>Understanding of object-oriented programming concepts</li>
+<li>Familiarity with Git and version control</li>
+<li>Basic understanding of mobile app concepts</li>
+</ul>
+<h2 id="training-structure">Training Structure<a class="headerlink" href="#training-structure" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-foundation-weeks-1-2">Phase 1: Foundation (Weeks 1-2)<a class="headerlink" href="#phase-1-foundation-weeks-1-2" title="Permanent link">&para;</a></h3>
+<p><strong>Goal</strong>: Understand Flutter basics and project structure</p>
+<h4 id="week-1-flutter-fundamentals">Week 1: Flutter Fundamentals<a class="headerlink" href="#week-1-flutter-fundamentals" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Day 1-2</strong>: Flutter installation and setup</li>
+<li>Follow <a href="../../setup/flutter-installation/">Flutter Installation Guide</a></li>
+<li>Set up development environment (VS Code/Android Studio)</li>
+<li>
+<p>Create your first "Hello World" app</p>
+</li>
+<li>
+<p>[ ] <strong>Day 3-4</strong>: Dart language basics</p>
+</li>
+<li>Variables, functions, and classes</li>
+<li>Null safety and type system</li>
+<li>Async/await and Futures</li>
+<li>
+<p>Collections and iterables</p>
+</li>
+<li>
+<p>[ ] <strong>Day 5-7</strong>: Core Flutter concepts</p>
+</li>
+<li>Widgets and widget tree</li>
+<li>Stateless vs Stateful widgets</li>
+<li>Basic layouts (Row, Column, Stack)</li>
+<li>Material Design components</li>
+</ul>
+<h4 id="week-2-project-structure-architecture">Week 2: Project Structure &amp; Architecture<a class="headerlink" href="#week-2-project-structure-architecture" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Day 1-3</strong>: Project organization</li>
+<li>Study <a href="../../setup/project-structure/">Project Structure Guide</a></li>
+<li>Understand flat vs feature-based architecture</li>
+<li>Learn about dependency injection</li>
+<li>
+<p>Package management with pubspec.yaml</p>
+</li>
+<li>
+<p>[ ] <strong>Day 4-5</strong>: State management introduction</p>
+</li>
+<li>Provider pattern basics</li>
+<li>setState vs state management solutions</li>
+<li>
+<p>Introduction to Riverpod</p>
+</li>
+<li>
+<p>[ ] <strong>Day 6-7</strong>: Navigation and routing</p>
+</li>
+<li>Navigator 1.0 vs 2.0</li>
+<li>go_router implementation</li>
+<li>Deep linking concepts</li>
+</ul>
+<h3 id="phase-2-core-development-weeks-3-6">Phase 2: Core Development (Weeks 3-6)<a class="headerlink" href="#phase-2-core-development-weeks-3-6" title="Permanent link">&para;</a></h3>
+<p><strong>Goal</strong>: Build core Instagram Clone features</p>
+<h4 id="week-3-authentication-user-management">Week 3: Authentication &amp; User Management<a class="headerlink" href="#week-3-authentication-user-management" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../security/authentication/">Authentication Guide</a></li>
+<li><a href="../../setup/supabase-setup/">Supabase Setup</a></li>
+<li>
+<p><a href="../../setup/supabase-usage/">Supabase Usage</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Implement user registration</li>
+<li>Add email/password login</li>
+<li>Create user profile management</li>
+<li>Add social authentication (Google/Apple)</li>
+</ul>
+<h4 id="week-4-uiux-development">Week 4: UI/UX Development<a class="headerlink" href="#week-4-uiux-development" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../ui/responsive-design/">Responsive Design</a></li>
+<li><a href="../../ui/cross-platform-design/">Cross-Platform Design</a></li>
+<li>
+<p><a href="../../ui/styling-systems/">Styling Systems</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Build responsive layouts</li>
+<li>Implement custom themes</li>
+<li>Create reusable UI components</li>
+<li>Add animations and transitions</li>
+</ul>
+<h4 id="week-5-data-management">Week 5: Data Management<a class="headerlink" href="#week-5-data-management" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../data/supabase-integration/">Supabase Integration</a></li>
+<li><a href="../../data/state-sync/">State Synchronization</a></li>
+<li>
+<p><a href="../../data/offline-support/">Offline Support</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Implement CRUD operations</li>
+<li>Add real-time data sync</li>
+<li>Create offline-first architecture</li>
+<li>Handle data caching</li>
+</ul>
+<h4 id="week-6-media-file-handling">Week 6: Media &amp; File Handling<a class="headerlink" href="#week-6-media-file-handling" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../native/platform-channels/">Platform Channels</a></li>
+<li>
+<p><a href="../../native/permissions/">Permissions</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Implement image picker</li>
+<li>Add camera functionality</li>
+<li>Create image upload/storage</li>
+<li>Handle file compression</li>
+</ul>
+<h3 id="phase-3-advanced-features-weeks-7-10">Phase 3: Advanced Features (Weeks 7-10)<a class="headerlink" href="#phase-3-advanced-features-weeks-7-10" title="Permanent link">&para;</a></h3>
+<p><strong>Goal</strong>: Implement advanced Instagram features</p>
+<h4 id="week-7-social-features">Week 7: Social Features<a class="headerlink" href="#week-7-social-features" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Practical Tasks</strong>:</li>
+<li>User following/followers system</li>
+<li>Post likes and comments</li>
+<li>Activity feed/notifications</li>
+<li>User search and discovery</li>
+</ul>
+<h4 id="week-8-real-time-features">Week 8: Real-time Features<a class="headerlink" href="#week-8-real-time-features" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../data/realtime-data/">Real-time Data</a></li>
+<li>
+<p><a href="../../tools/performance/">Performance Optimization</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Real-time chat/messaging</li>
+<li>Live notifications</li>
+<li>Real-time post updates</li>
+<li>Presence indicators</li>
+</ul>
+<h4 id="week-9-performance-optimization">Week 9: Performance &amp; Optimization<a class="headerlink" href="#week-9-performance-optimization" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../monitoring/performance/">Performance Monitoring</a></li>
+<li>
+<p><a href="../../tools/code-quality/">Code Quality</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Implement lazy loading</li>
+<li>Add image caching</li>
+<li>Optimize app performance</li>
+<li>Memory management</li>
+</ul>
+<h4 id="week-10-testing-quality-assurance">Week 10: Testing &amp; Quality Assurance<a class="headerlink" href="#week-10-testing-quality-assurance" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../testing/testing-guide/">Testing Guide</a></li>
+<li>
+<p><a href="../../tools/debugging/">Debugging</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Write unit tests</li>
+<li>Create widget tests</li>
+<li>Implement integration tests</li>
+<li>Set up automated testing</li>
+</ul>
+<h3 id="phase-4-production-deployment-weeks-11-12">Phase 4: Production &amp; Deployment (Weeks 11-12)<a class="headerlink" href="#phase-4-production-deployment-weeks-11-12" title="Permanent link">&para;</a></h3>
+<p><strong>Goal</strong>: Deploy and maintain production apps</p>
+<h4 id="week-11-deployment-preparation">Week 11: Deployment Preparation<a class="headerlink" href="#week-11-deployment-preparation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../deployment/deployment-guide/">Deployment Guide</a></li>
+<li><a href="../../deployment/cicd/">CI/CD</a></li>
+<li><a href="../../deployment/app-store/">App Store</a></li>
+<li>
+<p><a href="../../deployment/google-play/">Google Play</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Configure build variants</li>
+<li>Set up signing certificates</li>
+<li>Prepare app store assets</li>
+<li>Create release builds</li>
+</ul>
+<h4 id="week-12-monitoring-maintenance">Week 12: Monitoring &amp; Maintenance<a class="headerlink" href="#week-12-monitoring-maintenance" title="Permanent link">&para;</a></h4>
+<ul>
+<li>[ ] <strong>Study Materials</strong>:</li>
+<li><a href="../../monitoring/crash-reporting/">Crash Reporting</a></li>
+<li><a href="../../monitoring/ab-testing/">A/B Testing</a></li>
+<li>
+<p><a href="../../maintenance/version-management/">Version Management</a></p>
+</li>
+<li>
+<p>[ ] <strong>Practical Tasks</strong>:</p>
+</li>
+<li>Implement crash reporting</li>
+<li>Set up analytics</li>
+<li>Create update mechanisms</li>
+<li>Plan maintenance strategies</li>
+</ul>
+<h2 id="hands-on-projects">Hands-On Projects<a class="headerlink" href="#hands-on-projects" title="Permanent link">&para;</a></h2>
+<p>Complete these projects to reinforce your learning and build a portfolio:</p>
+<h3 id="project-1-personal-profile-app-week-2">Project 1: Personal Profile App (Week 2)<a class="headerlink" href="#project-1-personal-profile-app-week-2" title="Permanent link">&para;</a></h3>
+<p><strong>Difficulty</strong>: Beginner
+<strong>Duration</strong>: 3-5 days</p>
+<p>Build a simple personal profile app with:
+- User profile display
+- Edit profile functionality
+- Settings screen
+- Basic navigation</p>
+<p><strong>Learning Goals</strong>:
+- Widget composition
+- State management basics
+- Form handling
+- Navigation</p>
+<h3 id="project-2-photo-gallery-app-week-4">Project 2: Photo Gallery App (Week 4)<a class="headerlink" href="#project-2-photo-gallery-app-week-4" title="Permanent link">&para;</a></h3>
+<p><strong>Difficulty</strong>: Beginner-Intermediate
+<strong>Duration</strong>: 5-7 days</p>
+<p>Create a photo gallery app with:
+- Grid view of photos
+- Photo detail view
+- Search functionality
+- Favorites system</p>
+<p><strong>Learning Goals</strong>:
+- ListView and GridView
+- Image handling
+- Search implementation
+- Local storage</p>
+<h3 id="project-3-chat-application-week-6">Project 3: Chat Application (Week 6)<a class="headerlink" href="#project-3-chat-application-week-6" title="Permanent link">&para;</a></h3>
+<p><strong>Difficulty</strong>: Intermediate
+<strong>Duration</strong>: 7-10 days</p>
+<p>Build a real-time chat app with:
+- User authentication
+- Real-time messaging
+- Group chats
+- Media sharing</p>
+<p><strong>Learning Goals</strong>:
+- Real-time data
+- Complex state management
+- File uploads
+- Push notifications</p>
+<h3 id="project-4-e-commerce-app-week-8">Project 4: E-commerce App (Week 8)<a class="headerlink" href="#project-4-e-commerce-app-week-8" title="Permanent link">&para;</a></h3>
+<p><strong>Difficulty</strong>: Intermediate-Advanced
+<strong>Duration</strong>: 10-14 days</p>
+<p>Create an e-commerce app with:
+- Product catalog
+- Shopping cart
+- Payment integration
+- Order tracking</p>
+<p><strong>Learning Goals</strong>:
+- Complex navigation
+- Payment processing
+- State persistence
+- API integration</p>
+<h3 id="project-5-fitness-tracker-week-10">Project 5: Fitness Tracker (Week 10)<a class="headerlink" href="#project-5-fitness-tracker-week-10" title="Permanent link">&para;</a></h3>
+<p><strong>Difficulty</strong>: Advanced
+<strong>Duration</strong>: 14-21 days</p>
+<p>Build a fitness tracking app with:
+- Activity tracking
+- Data visualization
+- Goal setting
+- Social features</p>
+<p><strong>Learning Goals</strong>:
+- Sensor integration
+- Data visualization
+- Background processing
+- Health data handling</p>
+<h2 id="assessment-checkpoints">Assessment Checkpoints<a class="headerlink" href="#assessment-checkpoints" title="Permanent link">&para;</a></h2>
+<h3 id="week-4-checkpoint-basic-competency">Week 4 Checkpoint: Basic Competency<a class="headerlink" href="#week-4-checkpoint-basic-competency" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Can create responsive layouts</li>
+<li>[ ] Understands state management</li>
+<li>[ ] Can implement navigation</li>
+<li>[ ] Handles user input effectively</li>
+</ul>
+<h3 id="week-8-checkpoint-intermediate-skills">Week 8 Checkpoint: Intermediate Skills<a class="headerlink" href="#week-8-checkpoint-intermediate-skills" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Implements complex features</li>
+<li>[ ] Uses advanced state management</li>
+<li>[ ] Handles real-time data</li>
+<li>[ ] Optimizes app performance</li>
+</ul>
+<h3 id="week-12-checkpoint-production-ready">Week 12 Checkpoint: Production Ready<a class="headerlink" href="#week-12-checkpoint-production-ready" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Deploys apps to stores</li>
+<li>[ ] Implements monitoring</li>
+<li>[ ] Handles edge cases</li>
+<li>[ ] Follows best practices</li>
+</ul>
+<h2 id="certification-path">Certification Path<a class="headerlink" href="#certification-path" title="Permanent link">&para;</a></h2>
+<h3 id="flutter-developer-certificate">Flutter Developer Certificate<a class="headerlink" href="#flutter-developer-certificate" title="Permanent link">&para;</a></h3>
+<p>Complete all phases and projects to earn recognition:</p>
+<ol>
+<li><strong>Foundation Certificate</strong> (Week 4)</li>
+<li>Complete Phase 1 and Projects 1-2</li>
+<li>
+<p>Pass basic competency assessment</p>
+</li>
+<li>
+<p><strong>Intermediate Certificate</strong> (Week 8)</p>
+</li>
+<li>Complete Phase 2 and Projects 3-4</li>
+<li>
+<p>Demonstrate intermediate skills</p>
+</li>
+<li>
+<p><strong>Advanced Certificate</strong> (Week 12)</p>
+</li>
+<li>Complete all phases and projects</li>
+<li>Deploy a production app</li>
+<li>Demonstrate best practices</li>
+</ol>
+<h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<h3 id="recommended-reading">Recommended Reading<a class="headerlink" href="#recommended-reading" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.flutter.dev/">Flutter Documentation</a></li>
+<li><a href="https://dart.dev/guides/language/language-tour">Dart Language Tour</a></li>
+<li><a href="https://material.io/design">Material Design Guidelines</a></li>
+<li><a href="https://developer.apple.com/design/human-interface-guidelines/">iOS Human Interface Guidelines</a></li>
+</ul>
+<h3 id="community-resources">Community Resources<a class="headerlink" href="#community-resources" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://flutter.dev/community">Flutter Community</a></li>
+<li><a href="https://discord.gg/flutter">Flutter Discord</a></li>
+<li><a href="https://www.reddit.com/r/FlutterDev/">r/FlutterDev</a></li>
+<li><a href="https://www.youtube.com/c/flutterdev">Flutter YouTube Channel</a></li>
+</ul>
+<h3 id="practice-platforms">Practice Platforms<a class="headerlink" href="#practice-platforms" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://dartpad.dev/">DartPad</a> - Online Dart/Flutter editor</li>
+<li><a href="https://codelabs.developers.google.com/?cat=Flutter">Flutter Codelabs</a></li>
+<li><a href="https://github.com/flutter/samples">Flutter Samples</a></li>
+</ul>
+<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
+<h3 id="when-youre-stuck">When You're Stuck<a class="headerlink" href="#when-youre-stuck" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Check Documentation</strong>: Always start with official docs</li>
+<li><strong>Search Issues</strong>: Look for similar problems on GitHub</li>
+<li><strong>Ask Community</strong>: Use Stack Overflow, Discord, or Reddit</li>
+<li><strong>Debug Systematically</strong>: Use Flutter DevTools</li>
+<li><strong>Take Breaks</strong>: Sometimes stepping away helps</li>
+</ol>
+<h3 id="mentorship-opportunities">Mentorship Opportunities<a class="headerlink" href="#mentorship-opportunities" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Join Flutter study groups</li>
+<li>Participate in open source projects</li>
+<li>Attend Flutter meetups and conferences</li>
+<li>Find a mentor in the Flutter community</li>
+</ul>
+<h2 id="success-tips">Success Tips<a class="headerlink" href="#success-tips" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Practice Daily</strong>: Consistency is key to mastering Flutter</li>
+<li><strong>Build Real Projects</strong>: Apply concepts to practical problems</li>
+<li><strong>Read Code</strong>: Study well-written Flutter apps on GitHub</li>
+<li><strong>Stay Updated</strong>: Follow Flutter releases and best practices</li>
+<li><strong>Share Knowledge</strong>: Teach others to reinforce your learning</li>
+<li><strong>Be Patient</strong>: Mobile development has a learning curve</li>
+<li><strong>Focus on Quality</strong>: Write clean, maintainable code from the start</li>
+</ol>
+<p>Remember: This Instagram Clone project serves as your reference implementation. Use it to understand patterns, but challenge yourself to implement features independently first, then compare with the reference solution.</p>
+<p>Good luck on your Flutter journey!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Flutter Development Team
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rcdelacruz/flutter_instagram_app" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/your-handle" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>
