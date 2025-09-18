@@ -1,6 +1,6 @@
-# Flutter Production-Grade Instagram Clone Guide
+# Flutter Production-Grade App Guide
 
-Welcome to the comprehensive guide for building production-grade Flutter applications. This documentation covers everything from setup to deployment, following industry best practices and Flutter-specific patterns.
+Welcome to the comprehensive guide for building production-grade Flutter applications. This documentation covers everything from setup to deployment, following industry best practices.
 
 ## Overview
 
@@ -10,24 +10,109 @@ This guide is designed to take you from Flutter beginner to production-ready dev
 
 ### Development Fundamentals
 
-- Setting up a robust Flutter development environment
-- Organizing scalable project structures with clean architecture
-- Implementing effective state management patterns
-- Managing dependencies and package integration
+- Setting up a robust development environment
+- Organizing scalable project structures
+- Implementing clean architecture patterns
+- Managing state effectively across your application
 
 ### Production Readiness
 
-- Building secure authentication systems with Supabase
+- Building secure authentication systems
 - Implementing proper error handling and monitoring
 - Optimizing performance for mobile devices
 - Setting up automated testing and deployment pipelines
 
 ### Advanced Topics
 
-- Integrating platform-specific code and native features
+- Integrating platform channels and native features
 - Implementing offline-first architectures
 - Managing real-time data synchronization
 - Deploying to app stores with confidence
+
+## Architecture Overview
+
+```mermaid
+    graph TB
+    A[Flutter App] --> B[Presentation Layer]
+    A --> C[Business Logic Layer]
+    A --> D[Data Layer]
+    A --> E[Infrastructure Layer]
+
+    B --> B1[Widgets]
+    B --> B2[Screens]
+    B --> B3[Navigation]
+
+    C --> C1[Riverpod Providers]
+    C --> C2[Services]
+    C --> C3[Use Cases]
+
+    D --> D1[State Management]
+    D --> D2[API Client]
+    D --> D3[Local Storage]
+    D --> D4[Cache]
+
+    E --> E1[Platform Channels]
+    E --> E2[Native Modules]
+    E --> E3[External Services]
+    E --> E4[Device APIs]
+```
+
+## Technology Stack
+
+### Core Technologies
+
+- **Flutter 3.35+** - UI framework for cross-platform development
+- **Dart 3.5+** - Programming language optimized for UI development
+- **Material Design 3** - Modern design system for consistent UI
+
+### State Management
+
+- **Riverpod** - Recommended for complex state management
+- **BLoC Pattern** - Event-driven architecture for predictable state
+- **Provider** - Simple state management for smaller apps
+
+### Backend & Services
+
+- **Supabase** - Open-source Firebase alternative
+- **PostgreSQL** - Robust relational database
+- **Real-time subscriptions** - Live data synchronization
+- **Authentication** - Built-in auth with multiple providers
+
+### Development Tools
+
+- **VS Code / Android Studio** - Primary development environments
+- **Flutter DevTools** - Performance and debugging tools
+- **Dart Analyzer** - Static code analysis
+- **Flutter Test** - Comprehensive testing framework
+
+## Quick Start Paths
+
+### 🚀 For Beginners
+
+New to Flutter? Start here for a guided introduction:
+
+1. **[Environment Setup](setup/environment-setup.md)** - Install Flutter and set up your development environment
+2. **[Project Structure](setup/project-structure.md)** - Understand Flutter project organization
+3. **[Package Management](setup/package-management.md)** - Learn to manage dependencies
+4. **[Basic Architecture](architecture/app-architecture.md)** - Start with simple patterns
+
+### 🏗️ For Intermediate Developers
+
+Have some Flutter experience? Focus on production patterns:
+
+1. **[State Management](architecture/state-management.md)** - Choose the right state solution
+2. **[Navigation](architecture/navigation.md)** - Implement complex routing
+3. **[Supabase Integration](setup/supabase-setup.md)** - Set up your backend
+4. **[Testing Strategies](tools/testing.md)** - Ensure code quality
+
+### ⚡ For Advanced Teams
+
+Building production apps? Jump to advanced topics:
+
+1. **[Platform Channels](native/platform-channels.md)** - Native integration
+2. **[Performance Optimization](tools/performance.md)** - Optimize for production
+3. **[Security Implementation](security/authentication.md)** - Secure your app
+4. **[Deployment Automation](deployment/cicd.md)** - Automate your releases
 
 ## Architecture Overview
 

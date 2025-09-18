@@ -1,0 +1,145 @@
+site_name: Flutter Developer Guide
+site_description: Comprehensive guide for building production-grade Flutter applications with clean architecture and best practices
+site_author: Flutter Development Team
+site_url: https://rcdelacruz.github.io/flutter_rork_app
+
+repo_name: rcdelacruz/flutter_rork_app
+repo_url: https://github.com/rcdelacruz/flutter_rork_app
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  font:
+    text: Work Sans
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Changelog: CHANGELOG.md
+  - Getting Started:
+    - Environment Setup: setup/environment-setup.md
+    - Project Structure: setup/project-structure.md
+    - Package Management: setup/package-management.md
+    - Supabase Setup: setup/supabase-setup.md
+    - Supabase Usage: setup/supabase-usage.md
+    - Supabase Storage: setup/supabase-storage-setup.md
+  - Architecture:
+    - App Architecture: architecture/app-architecture.md
+    - State Management: architecture/state-management.md
+    - Navigation: architecture/navigation.md
+    - Widget Design: architecture/widget-design.md
+  - UI Development:
+    - Design Systems: ui/design-systems.md
+    - Responsive Design: ui/responsive-design.md
+    - Cross-Platform Design: ui/cross-platform-design.md
+    - Animations: ui/animations.md
+    - Styling Systems: ui/styling-systems.md
+  - Platform Integration:
+    - Flutter CLI vs Alternatives: native/flutter-cli-vs-alternatives.md
+    - Platform Channels: native/platform-channels.md
+    - Platform Specific: native/platform-specific.md
+    - Permissions: native/permissions.md
+  - Development Tools:
+    - Development Scripts: tools/development-scripts.md
+    - Debugging: tools/debugging.md
+    - Testing: tools/testing.md
+    - Code Quality: tools/code-quality.md
+    - Performance: tools/performance.md
+  - Troubleshooting:
+    - iOS Issues: troubleshooting/ios-troubleshooting.md
+    - Android Issues: troubleshooting/android-troubleshooting.md
+    - Common Issues: troubleshooting/common-issues.md
+    - Build Issues: troubleshooting/build-issues.md
+  - Data & Networking:
+    - API Integration: data/api-integration.md
+    - State Synchronization: data/state-sync.md
+    - Offline Support: data/offline-support.md
+    - Realtime Data: data/realtime-data.md
+  - Security:
+    - Authentication: security/authentication.md
+    - API Security: security/api-security.md
+    - App Security: security/app-security.md
+    - Data Security: security/data-security.md
+  - Deployment:
+    - CI/CD: deployment/cicd.md
+    - Build Configuration: deployment/build-config.md
+    - App Store: deployment/app-store.md
+    - Google Play: deployment/google-play.md
+  - Monitoring:
+    - Crash Reporting: monitoring/crash-reporting.md
+    - Analytics: monitoring/analytics.md
+    - Performance: monitoring/performance.md
+    - A/B Testing: monitoring/ab-testing.md
+  - Maintenance:
+    - Version Management: maintenance/version-management.md
+    - Hot Reload & Hot Restart: maintenance/hot-reload.md
+    - Migrations: maintenance/migrations.md
+    - Legacy Support: maintenance/legacy-support.md
+  - Documentation:
+    - MkDocs Setup: setup-mkdocs.md
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+  - javascripts/mermaid.js
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/rcdelacruz/flutter_rork_app
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/your-handle
+
+copyright: Copyright &copy; 2025 Flutter Development Team
