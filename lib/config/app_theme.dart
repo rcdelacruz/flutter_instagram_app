@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/font_helper.dart';
 
 class AppTheme {
   // Colors
@@ -43,12 +44,12 @@ class AppTheme {
         onError: Colors.white,
       ),
 
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: surfaceColor,
         foregroundColor: textPrimary,
         elevation: 0,
         centerTitle: false,
-        titleTextStyle: TextStyle(
+        titleTextStyle: FontHelper.getTextStyle(
           color: textPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w600,
@@ -130,64 +131,9 @@ class AppTheme {
         space: 1,
       ),
 
-      textTheme: const TextTheme(
-        headlineLarge: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: textPrimary,
-        ),
-        headlineMedium: TextStyle(
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
-          color: textPrimary,
-        ),
-        headlineSmall: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-          color: textPrimary,
-        ),
-        titleLarge: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: textPrimary,
-        ),
-        titleMedium: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: textPrimary,
-        ),
-        titleSmall: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          color: textPrimary,
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          color: textPrimary,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          color: textPrimary,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 12,
-          color: textSecondary,
-        ),
-        labelLarge: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          color: textPrimary,
-        ),
-        labelMedium: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
-          color: textSecondary,
-        ),
-        labelSmall: TextStyle(
-          fontSize: 10,
-          fontWeight: FontWeight.w500,
-          color: textSecondary,
-        ),
+      textTheme: FontHelper.createTextTheme(
+        primaryColor: textPrimary,
+        secondaryColor: textSecondary,
       ),
     );
   }
