@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,20 +10,7 @@ import 'app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Override debug print to suppress font warnings
-  if (kDebugMode) {
-    final originalDebugPrint = debugPrint;
-    debugPrint = (String? message, {int? wrapWidth}) {
-      if (message != null) {
-        // Suppress font warnings completely
-        if (message.contains('Could not find a set of Noto fonts') ||
-            message.contains('Please add a font asset for the missing characters')) {
-          return; // Don't print font warnings
-        }
-        originalDebugPrint(message, wrapWidth: wrapWidth);
-      }
-    };
-  }
+  // Font warnings suppressed at web level in index.html
 
   // Skip complex font loading - just suppress warnings
 
@@ -53,6 +41,8 @@ void main() async {
     ),
   );
 }
+
+
 
 
 
