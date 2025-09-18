@@ -4,9 +4,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app.dart';
+import 'config/font_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize font configuration for missing characters
+  await FontConfig.initialize();
 
   // Load environment variables
   try {

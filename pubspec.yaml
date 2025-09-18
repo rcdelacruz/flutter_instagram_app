@@ -116,17 +116,15 @@ flutter:
     - .env
 
   # Fonts
-  # fonts:
-  #   - family: Instagram
-  #     fonts:
-  #       - asset: assets/fonts/Instagram.ttf
-  #   - family: Roboto
-  #     fonts:
-  #       - asset: assets/fonts/Roboto-Regular.ttf
-  #       - asset: assets/fonts/Roboto-Medium.ttf
-  #         weight: 500
-  #       - asset: assets/fonts/Roboto-Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: NotoSans
+      fonts:
+        - asset: assets/fonts/NotoSans-Regular.ttf
+        - asset: assets/fonts/NotoSans-Bold.ttf
+          weight: 700
+    - family: NotoColorEmoji
+      fonts:
+        - asset: assets/fonts/NotoColorEmoji.ttf
 
 # Flutter Launcher Icons Configuration
 flutter_launcher_icons:

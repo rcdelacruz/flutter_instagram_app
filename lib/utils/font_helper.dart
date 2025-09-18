@@ -5,6 +5,8 @@ class FontHelper {
   // Comprehensive font fallback list for missing characters
   static const List<String> fontFallbacks = [
     'Inter',
+    'NotoSans',
+    'NotoColorEmoji',
     'Roboto',
     'Noto Sans',
     'Noto Color Emoji',
