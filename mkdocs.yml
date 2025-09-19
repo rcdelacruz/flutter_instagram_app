@@ -65,6 +65,10 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Training:
+    - Training Overview: training/README.md
+    - Training Deliverables Guide: training/training-deliverables-guide.md
+    - Repository Setup Guide: training/repository-setup-guide.md
+    - Training Quick Reference: training/training-quick-reference.md
     - Self-Paced Training Guide: training/self-paced-training-guide.md
     - Project Ideas: training/project-ideas.md
   - Getting Started:
